@@ -2,3 +2,10 @@ language: node_js
 node_js: node
 services:
 - mongodb
+deploy:
+  provider: heroku
+  api_key:
+    secure: xiXrXHebcW47BAYeXWXI0nISe+h+JPukLtt7lgromw+cdIp7LhO6gXOVSeYl0lQfKoaGcd6zibzaihxe5lN2myguaEH//eQEsPlmz8BBoZawQyJwjBVbk5HVwMJ7bs4n6c7Pkqw/GGaI4bSLk4uj4QW20I3/tIl7IeNMZx0wruBaqs0mMcsZWzD0mNq8cgUskdly/0rTZ5jpdr+thN+vlpmSIs3johXJ5ADiLEql490mHW6DIerIfD5DjLbNnwjjJHWZBnW1KcZXa34BCOZdKEucdJluBsLkZ/9zyh0tQbnX3CsT5s5nwiuM+eZmKYs5Tnwn2GM8xZu09LJ1NBFzfyXVZWdegFsj71sQgonNSTz8Kd8iqg8vvpQrDbLsMM/j63nfRnJHRCa1ZemMjfP5zutv1mXUzf1AqZZ497gypQq+XrI/KnFdAEgGaDkTQ6LvYc8LLtIME+Wa9kS+073tGJ91EH04Bmto/wnF0ItfTAnRtjEKGrxl7mUffFYyxYtzBcclquJs84p6HYdXQPFwvNnw6g0h8Pi6wCDGDS6UxcAcrG79LTJ3yU9E79bU7pgU6XzeGvwqp8w+9/51dApgtDC5umsY7WtlYFWOl41sT8Da7pf1Iy3ei+w+eiWI/1RYqxo5OsY6bAK5byfARP6zj+nx56PWq8S6C8n5p97kv1A=
+  app: johnvincentio-blog-app
+  on:
+    repo: johnvincentio/blog-challenge-tests-ci
