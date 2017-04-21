@@ -7,8 +7,12 @@ var addTemplate = '\
     <input type="text" name="blog-add-title" id="blog-add-title" placeholder="">\
 </div>\
 <div>\
-    <label for="blog-add-author">Author</label>\
-    <input type="text" name="blog-add-author" id="blog-add-author" placeholder="eg donald duck">\
+    <label for="blog-add-first">First Name</label>\
+    <input type="text" name="blog-add-first" id="blog-add-first" placeholder="first name">\
+</div>\
+<div>\
+    <label for="blog-add-last">Last Name</label>\
+    <input type="text" name="blog-add-last" id="blog-add-last" placeholder="last name">\
 </div>\
 <div>\
     <label for="blog-add-content">Content</label>\
@@ -76,7 +80,10 @@ $(function() {
         e.preventDefault();
         var blog = {
             title: $(e.currentTarget).find('#blog-add-title').val(),
-            author: $(e.currentTarget).find('#blog-add-author').val(),
+            author: {
+                firstName: $(e.currentTarget).find('#blog-add-first').val(),
+                lastName: $(e.currentTarget).find('#blog-add-last').val()
+            },
             content: $(e.currentTarget).find('#blog-add-content').val()
         };
         console.log('Adding blog: ' + blog);
@@ -88,10 +95,17 @@ $(function() {
             contentType: 'application/json',
             success: function() {
                 $main.trigger('list-blogs');
+            },
+            error: function(xhr, textStatus, ex) {
+                console.err("Status: "+xhr.status);
+                console.err("textStatus "+textStatus);
+                console.err("ex "+ex);
+                console.err("xhr.responseText "+xhr.responseText);
             }
         });
         $('#blog-add-title').val('');
-        $('#blog-add-author').val('');
+        $('#blog-add-first').val('');
+        $('#blog-add-last').val('');
         $('#blog-add-content').val('');
     });
 

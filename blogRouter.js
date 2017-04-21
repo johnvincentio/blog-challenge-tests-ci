@@ -14,7 +14,7 @@ const {BlogModel} = require('./models');
 router.get('/', (req, res) => {
     BlogModel
         .find()
-        .limit(10)
+        .limit(100)
         .exec()
         .then(blogs => {
             res.json(blogs.map(blog => blog.getAll()));
